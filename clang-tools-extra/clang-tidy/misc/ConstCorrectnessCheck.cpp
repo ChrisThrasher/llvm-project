@@ -105,7 +105,7 @@ void ConstCorrectnessCheck::registerMatchers(MatchFinder *Finder) {
           namedDecl(matchers::matchesAnyListedName(AllowedTypes))))))));
 
   const auto AutoTemplateType = varDecl(
-      anyOf(hasType(autoType()), hasType(referenceType(pointee(autoType()))),
+      anyOf(hasType(referenceType(pointee(autoType()))),
             hasType(pointerType(pointee(autoType())))));
 
   const auto FunctionPointerRef =
